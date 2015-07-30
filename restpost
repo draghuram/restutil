@@ -1,0 +1,9 @@
+#!/bin/bash
+
+SHOW_HEADERS="-i"
+if [ -n "$NO_HEADERS" ]
+then
+    SHOW_HEADERS=""
+fi
+
+curl ${CURLOPTS} -k -s $SHOW_HEADERS -X POST --data @- "${RESTSERVER:-http://localhost:8080}/$1" | json_tool.py | less
