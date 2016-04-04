@@ -1,0 +1,5 @@
+
+This project contains few wrapper scripts on top of curl to facilitate 
+dealing with REST APIs from command line. 
+
+
