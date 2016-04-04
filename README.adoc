@@ -1,5 +1,48 @@
 
+= Restutil
+
 This project contains few wrapper scripts on top of curl to facilitate 
 dealing with REST APIs from command line. 
+
+== Usage
+
+By default, all the API calls are made to `http://localhost:8080` but
+that can be changed by setting the environment variable `RESTSERVER`. 
+
+The following examples assume that a REST service to manage "notes" is
+available at `http://localhost:8080`.
+
+----
+# Get list of notes
+$ restget api/notes
+
+# Get a particular note
+$ restget api/notes/10
+
+# Create a note
+$ cat /tmp/example_note.txt | restpost api/notes
+
+# Update a note
+$ cat /tmp/example_note.txt | restput api/notes/10
+
+# Delete a note
+$ restdel api/notes/10
+
+# Talk to REST server at a non-default location
+$ RESTSERVER=https://www.example.com restget api/notes
+
+# Passing a custom header
+$ CURLOPTS="-H X-Custom_Header: value" restget api/notes
+----
+
+== Notes
+
+The scripts require "python" and "curl" to be available in PATH. 
+
+
+
+
+
+
 
 
