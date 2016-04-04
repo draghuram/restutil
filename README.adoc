@@ -37,7 +37,21 @@ $ CURLOPTS="-H X-Custom_Header: value" restget api/notes
 
 == Notes
 
-The scripts require "python" and "curl" to be available in PATH. 
+- The scripts require "python" and "curl" to be available in PATH. 
+
+- All requests and responses are expected to be in JSON format. 
+
+- If you need to send custom headers, it is preferable to add them to
+  ".curlrc" to keep the command simple. 
+
+- By default, "links" field in the response is removed. To keep
+  it, do as follows:
+
+----
+$ JT_REMOVE_LINKS="" restget api/notes
+----
+
+
 
 
 
